@@ -1,0 +1,33 @@
+header{
+    div{
+    background-color: rgb(20, 20, 20);
+        .parte-superior{
+            h1{
+                font-size: 40px;
+                color: white;
+                font-family: "Zilla Slab", serif;
+                font-weight: 400;
+                font-style: normal;
+                padding: 50px 100px;
+            }
+        }
+        .parte-inferior{
+            padding: 20px;
+        background-color: #393C41;
+            
+            align-items: center;
+            text-align: right;
+            .nav{
+                margin-left: 800px;
+                .nav-item{
+                    color: white;
+                    a{
+                        font-size: 18px;
+                        padding: 15px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
