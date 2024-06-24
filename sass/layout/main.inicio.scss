@@ -1,3 +1,71 @@
 main{
     background-color: #E4E1DA;
+    section{
+        h2{
+            font-size: 50px;
+            margin: 50px 100px;
+        }
+        #productos{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            div{
+                background-color: rgb(173, 171, 171);
+                margin: 20px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                img{
+                    height: 400px;
+                    width: 400px;
+                    padding: 5px;
+                }
+                div{
+                    flex-grow: 1;
+                    display: grid;
+                    grid-template-columns: repeat(2,180px);
+                    grid-template-rows: 80px 50px;
+                    
+                    h5{
+                        font-size: 25px;
+                        grid-column: 1/3;
+                        grid-row: 1/2;
+                        
+                    }
+                    p{
+                        font-size: 25px;
+                        grid-column: 1/2;
+                        grid-row: 2/3;
+                        margin-top: 10px;
+                    }
+                    input{
+                        padding: 5px;
+                        background-color: rgb(121, 118, 118);
+                        grid-column: 2/3;
+                        grid-row: 2/3;
+                        border-radius: 8px;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }   
+        }
+    }
+    div{
+        h2{
+            font-size: 50px;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .logos{
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            img{
+                width: 280px;
+                height: 180px;
+                margin: 20px;
+            }
+        }
+    }
 }
