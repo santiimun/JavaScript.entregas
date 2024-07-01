@@ -2,18 +2,21 @@
 
 
 
+
 let todosLosProductos = []
 
 function agregarProducto(nombre, precio, prenda, genero, img) {
     let nuevoProducto = {
+        
         nombre: nombre,
         precio: precio,
         prenda: prenda,
         genero: genero,
         img: img,
     }
-    todosLosProductos.push(nuevoProducto)
+    todosLosProductos.push(nuevoProducto);
 }
+
 
 agregarProducto("Zapatillas Adi2000 de hombre", 160000, "calzado", "hombre", 'assets/adi2000.webp');
 agregarProducto("Zapatillas Jordan Air 4 Retro de hombre", 320000, "calzado", "hombre","assets/jordanretro4.webp");
@@ -42,57 +45,101 @@ agregarProducto("Remera Nike Crop de niño", 35000, "indumentaria", "niños","as
 ////////////DIVISION DE LOS PRODUCTOS/////////////
 
 
+function elementosRandom(array, numElementos) {
+    let random = array.sort(() => 0.5 - Math.random());
+    return random.slice(0, numElementos);
+}
+let recomendado = elementosRandom(todosLosProductos, 4);
+
 
 let calzado = todosLosProductos.filter((el) => el.prenda == "calzado");
 let indumentaria = todosLosProductos.filter((el) => el.prenda == "indumentaria");
 let hombre = todosLosProductos.filter((el) => el.genero == "hombre");
-let mujer = todosLosProductos.filter((el) => el.genero == "mmujer");
+let mujer = todosLosProductos.filter((el) => el.genero == "mujer");
 let niños = todosLosProductos.filter((el) => el.genero == "niños");
 
+//////////////////////////CREACION DE LA CARD////////////////
 
 
 
-function renderizarProductos(productos, id) {
+
+
+function crearProducto(productos, id) {
     const contenedorProductos = document.getElementById(id);
-    contenedorProductos.innerHTML = ''; // Limpiamos el contenedor antes de renderizar
-
+    contenedorProductos.innerHTML = ''; 
+    let contador = 0;
     productos.forEach(producto => {
         let productoDiv = document.createElement('div');
         productoDiv.className = 'card';
-
+        contador++;
+        productoDiv.id = `producto-${contador}`;
         productoDiv.innerHTML = `
             <img src="${producto.img}" class="card-img-top" alt="${producto.nombre}">
             <div class="card-body">
                 <h5 class="card-title">${producto.nombre}</h5>
                 <p class="card-text">$${producto.precio}</p>
-                <input type="button" value="Agregar al carrito">
+                <input type="button" value="Agregar al carrito" id="agregar-${contador}">
             </div>
         `;
-
         contenedorProductos.appendChild(productoDiv);
+
+        ///////////AGREGAR AL CARRITO//////////////////
+
+        const botonAgregar = document.getElementById(`agregar-${contador}`);
+        botonAgregar.addEventListener('click', () => {
+            const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+            const item = {
+                idUnico:`${producto.id}-${Date.now()}`,
+                ...producto
+            };
+            carrito.push(item);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito(); 
+        });
     });
 }
 
+/////////////MOSTRAR LOS PRODUCTOS DEL CARRITO//////////////////
 
+function mostrarCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    const carritoItems = document.getElementById('carrito-items');
+    carritoItems.innerHTML = ''; 
+    carrito.forEach(producto => {
+        let itemDiv = document.createElement('div');
+        itemDiv.className = 'carrito-item';
+        itemDiv.id = `carrito-${producto.idUnico}`;
+        itemDiv.innerHTML = `
+            <div>
+                <img src="${producto.img}" alt="${producto.nombre}">
+                <h5>${producto.nombre}</h5>
+                <p>$${producto.precio}</p>
+                <input type="button" value="Eliminar" id="eliminar-${producto.idUnico}">
+            </div>
+        `;
+        carritoItems.appendChild(itemDiv);
 
+        /////////////////ELIMINAR ELEMENTO DEL CARRITO
 
-
-function ElementOutstanding(array, numElements) {
-    // Barajar el array
-    let random = array.sort(() => 0.5 - Math.random());
-    
-    // Seleccionar los primeros 'numElements' elementos
-    return random.slice(0, numElements);
+        const eliminar = document.getElementById(`eliminar-${producto.idUnico}`);
+        eliminar.addEventListener('click', () => {
+            document.getElementById(`carrito-${producto.idUnico}`).remove();
+            eliminarProductoDelCarrito(producto.idUnico);
+        });
+    });
 }
 
-let randomElements = ElementOutstanding(todosLosProductos, 4);
+function eliminarProductoDelCarrito(idUnico) {
+    let carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    carrito = carrito.filter(producto => producto.idUnico !== idUnico);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarrito();
+}
 
-renderizarProductos(randomElements, 'productos');
+/////MUESTRO LOS PRODUCTOS EN EL INICIO///////////
 
+crearProducto(recomendado, 'productos');
 
+///////MUESTRA EL CARRITO CADA VEZ QUE CARGA LA PAGINA//////////
 
-
-
-
-
-
+document.addEventListener('DOMContentLoaded', mostrarCarrito);
