@@ -1,7 +1,12 @@
 @import "./base/reset..scss";
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
+
+
 @import "./layout/main.inicio.scss";
+@import "./layout/main-hombre.scss";
+@import "./layout/main-mujer.scss";
+@import "./layout/main-niños.scss";
 @import "./components/carrousel.scss";
 @import "./layout/mediaquerry/media1440.scss";
 @import "./layout/mediaquerry/media1024.scss"

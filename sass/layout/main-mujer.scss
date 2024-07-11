@@ -1,0 +1,52 @@
+main{
+    #productos-mujer{
+        margin-top: 120px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        div{
+            background-color: rgb(173, 171, 171);
+            margin: 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            img{
+                height: auto;
+                width: 400px;
+                padding: 5px;
+            }
+            div{
+                flex-grow: 1;
+                display: grid;
+                grid-template-columns: repeat(2,180px);
+                grid-template-rows: 80px 50px;
+                
+                h5{
+                    font-size: 25px;
+                    grid-column: 1/3;
+                    grid-row: 1/2;
+                }
+                p{
+                    font-size: 25px;
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                    margin-top: 10px;
+                }
+                input{
+                    padding: 5px;
+                    background-color: rgb(121, 118, 118);
+                    grid-column: 2/3;
+                    grid-row: 2/3;
+                    border-radius: 8px;
+                    justify-content: center;
+                    font-size: 15px;
+                    align-items: center;
+                    font-family: "Yeseva One", serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    cursor: pointer;
+                }
+            }
+        }  
+    }
+}
