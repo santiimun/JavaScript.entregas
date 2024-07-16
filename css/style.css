@@ -87,7 +87,6 @@ header {
       max-height: 405px; }
       .visible #carrito ul #carrito-items .carrito-item {
         width: 100%;
-        margin-top: 0px;
         background-color: #76787c;
         border: solid black; }
         .visible #carrito ul #carrito-items .carrito-item div {
@@ -96,8 +95,9 @@ header {
           justify-content: center;
           display: grid;
           grid-template-columns: 100px 290px 110px;
-          grid-template-rows: 40px 62px; }
+          grid-template-rows: 40px 60px; }
           .visible #carrito ul #carrito-items .carrito-item div img {
+            margin-top: 1px;
             margin-left: 7px;
             width: 110px;
             height: 95px;
@@ -113,7 +113,8 @@ header {
             margin-left: 40px;
             margin-top: 25px;
             grid-column: 2/3;
-            grid-row: 2/3; }
+            grid-row: 2/3;
+            font-weight: bold; }
           .visible #carrito ul #carrito-items .carrito-item div .eliminar {
             margin-left: 50px;
             margin-top: 25px;
@@ -122,32 +123,53 @@ header {
             cursor: pointer; }
   .visible #finalizar {
     background-color: black;
-    height: 150px; }
+    height: 175px; }
     .visible #finalizar #monto {
       background-color: black;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
       height: 50px; }
       .visible #finalizar #monto h3 {
+        font-size: 21px;
+        grid-column: 1/2;
+        grid-row: 1/3;
         color: white;
+        text-align: center;
+        margin-top: 25px;
+        margin-right: 80px; }
+      .visible #finalizar #monto #total {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        text-align: center;
+        color: white;
+        margin-top: 25px;
         margin-left: 25px;
-        margin-top: 15px; }
-      .visible #finalizar #monto p {
-        margin-top: 15px;
-        color: white;
-        margin-right: 25px; }
+        font-size: 20px; }
+      .visible #finalizar #monto #precio-dolar {
+        margin-top: 5px;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        color: #666161;
+        text-align: center;
+        margin-left: 25px;
+        font-weight: bold; }
     .visible #finalizar .linea {
+      margin-top: 40px;
       background-color: white;
       width: 550px;
       height: 1px; }
-    .visible #finalizar input {
-      width: 300px;
-      margin-left: 120px;
-      margin-top: 30px;
-      justify-content: center;
-      height: 50px; }
-      .visible #finalizar input:hover {
-        background-color: #393C41; }
+    .visible #finalizar div {
+      background-color: black;
+      display: flex;
+      justify-content: center; }
+      .visible #finalizar div input {
+        width: 300px;
+        margin-top: 20px;
+        justify-content: center;
+        height: 50px; }
+        .visible #finalizar div input:hover {
+          background-color: #393C41; }
 
 .confirmado {
   background-color: #232523 !important;
@@ -156,6 +178,12 @@ header {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px; }
+
+.carrito-vacio {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 20px; }
 
 footer {
   background-color: #6A6D72;
@@ -169,7 +197,7 @@ footer {
       text-align: center;
       justify-content: center;
       align-items: center;
-      margin-top: 25px;
+      margin-top: 10px;
       color: #111010; }
     footer section div {
       flex-direction: column;
@@ -183,16 +211,16 @@ footer {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         font-style: normal; }
-  footer .logos {
+  footer .logos-footer {
     margin: 20px;
     align-items: center;
     justify-content: center;
     text-align: center; }
-    footer .logos ul {
+    footer .logos-footer ul {
       list-style: none;
       display: flex;
       margin-right: 140px; }
-      footer .logos ul li img {
+      footer .logos-footer ul li img {
         width: 50px;
         height: 50px;
         margin: 20px;
@@ -239,16 +267,17 @@ main {
           grid-row: 2/3;
           border-radius: 8px;
           justify-content: center;
-          font-size: 15px;
+          font-size: 13px;
           align-items: center;
-          font-family: "Yeseva One", serif;
-          font-weight: 400;
+          font-family: "Oswald", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: bold;
           font-style: normal;
           cursor: pointer; }
   main div h2 {
     font-size: 50px;
     text-align: center;
-    margin-top: 100px; }
+    margin-top: 60px; }
   main div .logos {
     display: flex;
     justify-content: center;
@@ -294,10 +323,11 @@ main #productos-hombre {
         grid-row: 2/3;
         border-radius: 8px;
         justify-content: center;
-        font-size: 15px;
+        font-size: 13px;
         align-items: center;
-        font-family: "Yeseva One", serif;
-        font-weight: 400;
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: bold;
         font-style: normal;
         cursor: pointer; }
 
@@ -334,15 +364,16 @@ main #productos-mujer {
         padding: 5px;
         background-color: #797676;
         grid-column: 2/3;
-        grid-row: 2/3;
         border-radius: 8px;
         justify-content: center;
-        font-size: 15px;
+        font-size: 13px;
         align-items: center;
-        font-family: "Yeseva One", serif;
-        font-weight: 400;
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: bold;
         font-style: normal;
-        cursor: pointer; }
+        cursor: pointer;
+        grid-row: 2/3; }
 
 main #productos-niños {
   margin-top: 120px;
@@ -380,10 +411,11 @@ main #productos-niños {
         grid-row: 2/3;
         border-radius: 8px;
         justify-content: center;
-        font-size: 15px;
+        font-size: 13px;
         align-items: center;
-        font-family: "Yeseva One", serif;
-        font-weight: 400;
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: bold;
         font-style: normal;
         cursor: pointer; }
 
@@ -432,18 +464,203 @@ main #productos-niños {
     main .conteiner .slide ul li img {
       width: 1200px; }
   footer {
+    padding: 0px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-row: 1fr 1fr; }
+    grid-template-rows: 1fr; }
     footer section {
       margin-left: 0px; }
-    footer .logos ul {
+    footer .logos-footer ul {
       justify-content: right;
-      margin-right: 20px; } }
+      margin-right: 20px; }
+  .visible #carrito {
+    width: 35%; } }
 
-@media (max-width: 1024px) {
+@media (max-width: 1400px) {
+  .visible #carrito {
+    width: 36%; } }
+
+@media (max-width: 1360px) {
+  .visible #carrito {
+    width: 37%; } }
+
+@media (max-width: 1320px) {
+  .visible #carrito {
+    width: 38%; } }
+
+@media (max-width: 1290px) {
+  .visible #carrito {
+    width: 39%; } }
+
+@media (max-width: 1252px) {
+  main .conteiner .slide {
+    max-width: 1100px;
+    width: 180vh; }
+    main .conteiner .slide ul li img {
+      width: 1100px; }
+  main div h2 {
+    font-size: 50px; }
+  main div .logos img {
+    width: 220px; }
+  .visible #carrito {
+    width: 40%; } }
+
+@media (max-width: 1220px) {
+  .visible #carrito {
+    width: 41%; } }
+
+@media (max-width: 1190px) {
+  .visible #carrito {
+    width: 42%; } }
+
+@media (max-width: 1135px) {
   main .conteiner .slide {
     max-width: 1000px;
     width: 160vh; }
     main .conteiner .slide ul li img {
-      width: 1000px; } }
+      width: 1000px; }
+  .visible #carrito {
+    width: 45%; } }
+
+@media (max-width: 1135px) {
+  .visible #carrito {
+    width: 47%; } }
+
+@media (max-width: 1024px) {
+  main .conteiner .slide {
+    max-width: 800px;
+    width: 160vh; }
+    main .conteiner .slide ul li img {
+      width: 800px; }
+  main div .logos img {
+    width: 200px;
+    height: 160px; }
+  footer section {
+    grid-template-columns: repeat(3, 300px); }
+    footer section .copyright h4 {
+      font-size: 15px; }
+  footer .logos-footer ul {
+    margin-right: 0px;
+    justify-content: center; }
+  .visible #carrito {
+    width: 49%; } }
+
+@media (max-width: 990px) {
+  .visible #carrito {
+    width: 50%; }
+    .visible #carrito ul #carrito-items .carrito-item div {
+      grid-template-columns: 100px 260px 120px; } }
+
+@media (max-width: 924px) {
+  main div h2 {
+    font-size: 40px; }
+  main div .logos img {
+    margin: 5px;
+    width: 180px;
+    height: 150px; }
+  footer section {
+    grid-template-columns: repeat(2, 1fr); }
+    footer section .copyright {
+      grid-column: 1/3; }
+      footer section .copyright h4 {
+        font-size: 13px; }
+  footer .logos-footer ul {
+    margin-right: 0px;
+    justify-content: center; }
+  .visible #carrito {
+    width: 52%; } }
+
+@media (max-width: 900px) {
+  .visible #carrito {
+    width: 54%; } }
+
+@media (max-width: 864px) {
+  .visible #carrito {
+    width: 57%; } }
+
+@media (max-width: 820px) {
+  header div .parte-superior a h1 {
+    font-size: 25px;
+    margin: 35px 80px; }
+  header div .parte-inferior {
+    height: 80px;
+    width: 100%;
+    padding: 10px; }
+    header div .parte-inferior ul li a {
+      font-size: 14px; }
+  main .conteiner {
+    margin-top: 100px; }
+    main .conteiner .slide {
+      max-width: 700px;
+      width: 140vh; }
+      main .conteiner .slide ul li img {
+        width: 700px; }
+    main .conteiner section h2 {
+      font-size: 40px; }
+  .visible #carrito {
+    width: 100%; }
+    .visible #carrito #finalizar .linea {
+      width: 100%; } }
+
+@media (max-width: 710px) {
+  main .conteiner .slide {
+    max-width: 600px; }
+    main .conteiner .slide ul li img {
+      width: 600px; }
+  main .conteiner section h2 {
+    font-size: 40px; }
+  main div .logos img {
+    width: 150px;
+    height: 130px; }
+  footer section div {
+    margin: 15px 85px; }
+  footer .logos-footer {
+    grid-row: 2/3; } }
+
+@media (max-width: 626px) {
+  main .conteiner .slide {
+    max-width: 500px; }
+    main .conteiner .slide ul li img {
+      width: 500px; }
+  main section h2 {
+    font-size: 40px; }
+  main div h2 {
+    font-size: 40px; }
+  main div .logos {
+    margin-top: 30px; }
+    main div .logos img {
+      width: 110px;
+      height: 80px; }
+  footer section div {
+    margin: 15px 85px; }
+  footer .logos-footer {
+    grid-row: 2/3; } }
+
+@media (max-width: 545px) {
+  footer section div {
+    margin: 15px 75px; }
+    footer section div h3 {
+      font-size: 15px; }
+    footer section div p {
+      font-size: 13px; }
+  footer .logos-footer ul {
+    margin-bottom: 20px; }
+    footer .logos-footer ul li img {
+      width: 50px;
+      height: 50px; } }
+
+@media (max-width: 510px) {
+  main .conteiner .slide {
+    max-width: 450px; }
+    main .conteiner .slide ul li img {
+      width: 450px; }
+  div h2 {
+    padding: 20px; } }
+
+@media (max-width: 490px) {
+  header div .parte-superior a h1 {
+    margin: 35px 60px; }
+  header div .parte-superior .carrito #carrito-img {
+    margin: 35px 60px; }
+  header div .parte-superior .carrito .contador {
+    margin: 30px 60px; } }

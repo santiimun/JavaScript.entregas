@@ -1,0 +1,57 @@
+@media (max-width:820px){
+    header{
+        div{
+            .parte-superior{
+                a{
+                    h1{
+                        font-size: 25px;
+                        margin: 35px 80px;
+                    }
+                }
+            }
+            .parte-inferior{
+                height: 80px;
+                width: 100%;
+                padding: 10px;
+                ul{
+                    li{
+                        a{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    main{
+        .conteiner{
+            margin-top: 100px;
+            .slide{
+                max-width: 700px;
+                width: 140vh;
+                ul{
+                    li{
+                        img{
+                            width: 700px;
+                        }
+                    }
+                }
+            }
+            section{
+                h2{
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+    .visible{
+        #carrito{
+            width: 100%;
+            #finalizar{
+                .linea{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

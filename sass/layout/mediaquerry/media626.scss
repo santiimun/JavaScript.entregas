@@ -1,0 +1,44 @@
+@media (max-width:626px){
+    main{
+        .conteiner{
+            .slide{
+                max-width: 500px;
+                
+                ul{
+                    li{
+                        img{
+                            width: 500px;
+                        }
+                    }
+                }
+            }
+        }
+        section{
+            h2{
+                font-size: 40px;
+            }
+        }
+        div{
+            h2{
+                font-size: 40px;
+            }
+            .logos{
+                margin-top: 30px;
+                img{
+                    width: 110px;
+                    height: 80px;
+                }
+            }
+        }
+    }
+    footer{
+        section{
+            div{
+                margin: 15px 85px;
+            }
+        }
+        .logos-footer{
+            grid-row: 2/3;
+        }
+    }
+}

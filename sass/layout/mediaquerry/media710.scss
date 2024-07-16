@@ -1,0 +1,40 @@
+@media (max-width:710px){
+    main{
+        .conteiner{
+            .slide{
+                max-width: 600px;
+                
+                ul{
+                    li{
+                        img{
+                            width: 600px;
+                        }
+                    }
+                }
+            }
+            section{
+                h2{
+                    font-size: 40px;
+                }
+            }
+        }
+        div{
+            .logos{
+                img{
+                    width: 150px;
+                    height: 130px;
+                }
+            }
+        }
+    }
+    footer{
+        section{
+            div{
+                margin: 15px 85px;
+            }
+        }
+        .logos-footer{
+            grid-row: 2/3;
+        }
+    }
+}

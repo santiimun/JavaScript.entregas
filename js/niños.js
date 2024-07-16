@@ -85,7 +85,7 @@ function crearProducto(productos, id) {
             <div class="card-body">
                 <h5 class="card-title">${producto.nombre}</h5>
                 <p class="card-text">$${producto.precio}</p>
-                <input type="button" value="Agregar" id="agregar-${contador}">
+                <input type="button" value="AGREGAR" id="agregar-${contador}">
             </div>
         `;
         contenedorProductos.appendChild(productoDiv);
@@ -129,14 +129,15 @@ carritoImg.addEventListener('click', () => {
 
 /////////////MOSTRAR LOS PRODUCTOS DEL CARRITO//////////////////
 
-/////////////MOSTRAR LOS PRODUCTOS DEL CARRITO//////////////////
-
 function mostrarCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
     const carritoItems = document.getElementById('carrito-items');
     const precioCarrito = document.querySelector('#total')
+    const precioDolar = document.querySelector('#precio-dolar')
     let total =0;
+
     carritoItems.innerHTML = ''; 
+
     carrito.forEach(producto => {
         let itemDiv = document.createElement('div');
         itemDiv.className = 'carrito-item';
@@ -165,9 +166,23 @@ function mostrarCarrito() {
     });
     
     /////////ACTUALIZAR EL PRECIO DEL CARRITO/////
-
     precioCarrito.textContent= `$${total}`
-
+    if (carrito.length === 0){
+        precioDolar.textContent = `0 USD`
+    }else {
+        fetch("https://dolarapi.com/v1/dolares/blue")
+    .then(response => response.json())
+    .then(data => {
+        const dolarVenta = data.venta;
+        let totalDolares = Math.round(total/dolarVenta)
+        
+        precioDolar.textContent = `${totalDolares} USD`
+    })
+    .catch(() => {
+        precioDolar.textContent = '';
+    });
+    } 
+    
     ///////////CONTADOR DEL CARRITO////////////
 
     const contadorCarrito = document.querySelector('#contadorCarrito')
@@ -189,21 +204,33 @@ function eliminarProductoDelCarrito(idUnico) {
 const fin_compra = document.querySelector('#fin-compra');
 
 fin_compra.addEventListener('click', () => {
-    Swal.fire({
-        title: 'Compra finalizada!',
-        text: 'Gracias por elegirnos.',
-        icon: 'success',
-        confirmButtonText: 'OK',
-        width:400,
-        customClass:{   
-            confirmButton: 'confirmado'
-        }
-    }).then(() => {
-        localStorage.removeItem('carrito');
-        mostrarCarrito();
-    });
-    
-    
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    if (carrito.length > 0) {
+        Swal.fire({
+            title: 'Compra finalizada!',
+            text: 'Gracias por elegirnos.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            width: 400,
+            customClass: {   
+                confirmButton: 'confirmado'
+            }
+        }).then(() => {
+            localStorage.removeItem('carrito');
+            mostrarCarrito();
+        });
+    } else {
+        Swal.fire({
+            title: 'Carrito vacío',
+            text: 'No has añadido ningun producto.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            width: 400,
+            customClass: {   
+                confirmButton: 'confirmado'
+            }
+        });
+    }
 });
 
 /////MUESTRO LOS PRODUCTOS EN EL MAIN///////////

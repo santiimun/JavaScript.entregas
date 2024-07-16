@@ -24,7 +24,7 @@ function agregarProducto(nombre, precio, prenda, genero, img) {
 agregarProducto("Zapatillas Adi2000 de hombre", 160000, "calzado", "hombre", 'assets/adi2000.webp');
 agregarProducto("Zapatillas Jordan Air 4 Retro de hombre", 320000, "calzado", "hombre","assets/jordanretro4.webp");
 agregarProducto("Zapatillas Puma Suede XL de Hombre", 170000, "calzado", "hombre","assets/suedexl.webp");
-agregarProducto("Zapatiilas Nike Air Max 1 de Hombre", 25600, "calzado", "hombre", "./assets/airmax-hombre.webp")
+agregarProducto("Zapatiilas Nike Air Max 1 de Hombre", 256000, "calzado", "hombre", "./assets/airmax-hombre.webp")
 agregarProducto("Pantalon Adidas Originals Essentials de hombre", 75000, "indumentaria", "hombre","assets/Pantalon-Adidas-Originals.webp");
 agregarProducto("Remera Jordan Air de hombre", 60000, "indumentaria", "hombre","assets/remerajordan.webp");
 agregarProducto("Campera Nike Tech Fleece de hombre", 190000, "indumentaria", "hombre","assets/camperatech.webp");
@@ -85,7 +85,7 @@ function crearProducto(productos, id) {
             <div class="card-body">
                 <h5 class="card-title">${producto.nombre}</h5>
                 <p class="card-text">$${producto.precio}</p>
-                <input type="button" value="Agregar" id="agregar-${contador}">
+                <input type="button" value="AGREGAR" id="agregar-${contador}">
             </div>
         `;
         contenedorProductos.appendChild(productoDiv);
@@ -133,8 +133,11 @@ function mostrarCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
     const carritoItems = document.getElementById('carrito-items');
     const precioCarrito = document.querySelector('#total')
+    const precioDolar = document.querySelector('#precio-dolar')
     let total =0;
+
     carritoItems.innerHTML = ''; 
+
     carrito.forEach(producto => {
         let itemDiv = document.createElement('div');
         itemDiv.className = 'carrito-item';
@@ -163,9 +166,23 @@ function mostrarCarrito() {
     });
     
     /////////ACTUALIZAR EL PRECIO DEL CARRITO/////
-
     precioCarrito.textContent= `$${total}`
-
+    if (carrito.length === 0){
+        precioDolar.textContent = `0 USD`
+    }else {
+        fetch("https://dolarapi.com/v1/dolares/blue")
+    .then(response => response.json())
+    .then(data => {
+        const dolarVenta = data.venta;
+        let totalDolares = Math.round(total/dolarVenta)
+        
+        precioDolar.textContent = `${totalDolares} USD`
+    })
+    .catch(() => {
+        precioDolar.textContent = '';
+    });
+    } 
+    
     ///////////CONTADOR DEL CARRITO////////////
 
     const contadorCarrito = document.querySelector('#contadorCarrito')
@@ -187,21 +204,33 @@ function eliminarProductoDelCarrito(idUnico) {
 const fin_compra = document.querySelector('#fin-compra');
 
 fin_compra.addEventListener('click', () => {
-    Swal.fire({
-        title: 'Compra finalizada!',
-        text: 'Gracias por elegirnos.',
-        icon: 'success',
-        confirmButtonText: 'OK',
-        width:400,
-        customClass:{   
-            confirmButton: 'confirmado'
-        }
-    }).then(() => {
-        localStorage.removeItem('carrito');
-        mostrarCarrito();
-    });
-    
-    
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    if (carrito.length > 0) {
+        Swal.fire({
+            title: 'Compra finalizada!',
+            text: 'Gracias por elegirnos.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            width: 400,
+            customClass: {   
+                confirmButton: 'confirmado'
+            }
+        }).then(() => {
+            localStorage.removeItem('carrito');
+            mostrarCarrito();
+        });
+    } else {
+        Swal.fire({
+            title: 'Carrito vacío',
+            text: 'No has añadido ningun producto.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            width: 400,
+            customClass: {   
+                confirmButton: 'confirmado'
+            }
+        });
+    }
 });
 
 /////MUESTRO LOS PRODUCTOS EN EL MAIN///////////

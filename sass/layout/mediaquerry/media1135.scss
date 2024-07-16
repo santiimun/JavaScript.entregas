@@ -1,0 +1,23 @@
+@media (max-width:1135px){
+    main{
+        .conteiner{
+            
+            .slide{
+                max-width: 1000px;
+                width: 160vh;
+                ul{
+                    li{
+                        img{
+                            width: 1000px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .visible{
+        #carrito{
+            width: 45%;
+        }
+    }
+}

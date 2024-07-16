@@ -1,0 +1,17 @@
+@media (max-width:990px){
+    .visible{
+        #carrito{
+            width: 50%;
+            ul{
+                #carrito-items{
+                    .carrito-item{
+                        div{
+                            grid-template-columns: 100px 260px 120px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -89,7 +89,7 @@ function crearProducto(productos, id) {
             <div class="card-body">
                 <h5 class="card-title">${producto.nombre}</h5>
                 <p class="card-text">$${producto.precio}</p>
-                <input type="button" value="Agregar" id="agregar-${contador}">
+                <input type="button" value="AGREGAR" id="agregar-${contador}">
             </div>
         `;
         contenedorProductos.appendChild(productoDiv);
@@ -208,21 +208,33 @@ function eliminarProductoDelCarrito(idUnico) {
 const fin_compra = document.querySelector('#fin-compra');
 
 fin_compra.addEventListener('click', () => {
-    Swal.fire({
-        title: 'Compra finalizada!',
-        text: 'Gracias por elegirnos.',
-        icon: 'success',
-        confirmButtonText: 'OK',
-        width:400,
-        customClass:{   
-            confirmButton: 'confirmado'
-        }
-    }).then(() => {
-        localStorage.removeItem('carrito');
-        mostrarCarrito();
-    });
-    
-    
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    if (carrito.length > 0) {
+        Swal.fire({
+            title: 'Compra finalizada!',
+            text: 'Gracias por elegirnos.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            width: 400,
+            customClass: {   
+                confirmButton: 'confirmado'
+            }
+        }).then(() => {
+            localStorage.removeItem('carrito');
+            mostrarCarrito();
+        });
+    } else {
+        Swal.fire({
+            title: 'Carrito vacío',
+            text: 'No has añadido ningun producto.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            width: 400,
+            customClass: {   
+                confirmButton: 'confirmado'
+            }
+        });
+    }
 });
 
 

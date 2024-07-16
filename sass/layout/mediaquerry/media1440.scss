@@ -15,17 +15,23 @@
         }
     }
     footer{
+        padding: 0px;
         display: grid;
         grid-template-columns: 1fr;
-        grid-row: 1fr 1fr;
+        grid-template-rows: 1fr;
         section{
             margin-left: 0px;
         }
-        .logos{
+        .logos-footer{
             ul{
                 justify-content: right;
                 margin-right: 20px;
             }
+        }
+    }
+    .visible{
+        #carrito{
+            width: 35%;
         }
     }
 }
