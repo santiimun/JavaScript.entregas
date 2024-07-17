@@ -67,7 +67,7 @@ header {
 
 .visible {
   display: block;
-  position: static; }
+  position: sticky; }
   .visible #carrito {
     justify-content: flex-end;
     position: fixed;
