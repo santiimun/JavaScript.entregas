@@ -1,0 +1,36 @@
+@media (max-width:380px){
+    main{
+        .conteiner{
+            .slide{
+                max-width: 330px;
+                
+                ul{
+                    li{
+                        img{
+                            width: 330px;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .visible{
+        #carrito{
+            ul{
+                #carrito-items{
+                    .carrito-item{
+                        div{
+                            grid-template-columns: 84px 170px 80px;
+                            img{
+                                width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

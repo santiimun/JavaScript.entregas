@@ -18,5 +18,17 @@
             }
         }
     }
-    
+    .visible{
+        #carrito{
+            ul{
+                #carrito-items{
+                    .carrito-item{
+                        div{
+                            grid-template-columns: 89px 207px 122px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

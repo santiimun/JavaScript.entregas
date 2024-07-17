@@ -1,0 +1,26 @@
+@media (max-width:460px){
+    main{
+        .conteiner{
+            .slide{
+                max-width: 400px;
+                
+                ul{
+                    li{
+                        img{
+                            width: 400px;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer{
+        section{
+            div{
+                margin: 15px 50px;
+            }
+        }
+    }
+}
+

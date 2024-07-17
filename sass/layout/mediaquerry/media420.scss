@@ -1,0 +1,105 @@
+@media (max-width:420px){
+    main{
+        .conteiner{
+            .slide{
+                max-width: 370px;
+                
+                ul{
+                    li{
+                        img{
+                            width: 370px;
+                            
+                        }
+                    }
+                }
+            }
+        }
+        section{
+            h2{
+                font-size: 35px;
+            }
+            #productos{
+                div{
+                    width: 300px;
+                    margin: 0;
+                    margin-top: 20px;
+                    height: 430px;
+                    img{
+                        width: 300px;
+                    }
+                    div{
+                        grid-template-columns: repeat(2,140px);
+                        grid-template-rows: repeat(2,50px);
+                        h5{
+                            margin-left: 20px;
+                            font-size: 20px;
+                        }
+                        p{
+                            margin-left: 20px;
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+        }
+        div{
+            h2{
+                font-size: 35px;
+            }
+            .logos{
+                flex-wrap: wrap;
+            }
+        }
+    }
+    footer{
+        .logos-footer{
+            ul{
+                li{
+                    img{
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+    }
+    .visible{
+        #carrito{
+            ul{
+                #carrito-items{
+                    .carrito-item{
+                        div{
+                            grid-template-columns: 89px 207px 100px;
+                            h5{
+                                font-size: 14px;
+                            }
+                            .eliminar{
+                                margin-left: 25px;
+                                width: 25px;
+                                height: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+            #finalizar{
+                #monto{
+                    h3{
+                        font-size: 17px;
+                    }
+                    #total{
+                        font-size: 18px;
+                    }
+                    #precio-dolar{
+                        font-size: 16px;
+                    }
+                }
+                div{
+                    input{
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}

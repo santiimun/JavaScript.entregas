@@ -164,6 +164,9 @@ header {
       display: flex;
       justify-content: center; }
       .visible #finalizar div input {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-style: normal;
         width: 300px;
         margin-top: 20px;
         justify-content: center;
@@ -663,4 +666,88 @@ main #productos-niños {
   header div .parte-superior .carrito #carrito-img {
     margin: 35px 60px; }
   header div .parte-superior .carrito .contador {
-    margin: 30px 60px; } }
+    margin: 30px 60px; }
+  .visible #carrito ul #carrito-items .carrito-item div {
+    grid-template-columns: 89px 207px 122px; } }
+
+@media (max-width: 460px) {
+  main .conteiner .slide {
+    max-width: 400px; }
+    main .conteiner .slide ul li img {
+      width: 400px; }
+  footer section div {
+    margin: 15px 50px; } }
+
+@media (max-width: 420px) {
+  main .conteiner .slide {
+    max-width: 370px; }
+    main .conteiner .slide ul li img {
+      width: 370px; }
+  main section h2 {
+    font-size: 35px; }
+  main section #productos div {
+    width: 300px;
+    margin: 0;
+    margin-top: 20px;
+    height: 430px; }
+    main section #productos div img {
+      width: 300px; }
+    main section #productos div div {
+      grid-template-columns: repeat(2, 140px);
+      grid-template-rows: repeat(2, 50px); }
+      main section #productos div div h5 {
+        margin-left: 20px;
+        font-size: 20px; }
+      main section #productos div div p {
+        margin-left: 20px;
+        font-size: 22px; }
+  main div h2 {
+    font-size: 35px; }
+  main div .logos {
+    flex-wrap: wrap; }
+  footer .logos-footer ul li img {
+    width: 40px;
+    height: 40px; }
+  .visible #carrito ul #carrito-items .carrito-item div {
+    grid-template-columns: 89px 207px 100px; }
+    .visible #carrito ul #carrito-items .carrito-item div h5 {
+      font-size: 14px; }
+    .visible #carrito ul #carrito-items .carrito-item div .eliminar {
+      margin-left: 25px;
+      width: 25px;
+      height: 25px; }
+  .visible #carrito #finalizar #monto h3 {
+    font-size: 17px; }
+  .visible #carrito #finalizar #monto #total {
+    font-size: 18px; }
+  .visible #carrito #finalizar #monto #precio-dolar {
+    font-size: 16px; }
+  .visible #carrito #finalizar div input {
+    width: 200px; } }
+
+@media (max-width: 380px) {
+  main .conteiner .slide {
+    max-width: 330px; }
+    main .conteiner .slide ul li img {
+      width: 330px; }
+  .visible #carrito ul #carrito-items .carrito-item div {
+    grid-template-columns: 84px 170px 80px; }
+    .visible #carrito ul #carrito-items .carrito-item div img {
+      width: 100px; } }
+
+@media (max-width: 365px) {
+  header div .parte-superior a h1 {
+    font-size: 25px;
+    margin: 35px 40px; }
+  header div .parte-superior .carrito #carrito-img {
+    margin: 35px 40px; }
+  header div .parte-superior .carrito .contador {
+    margin: 30px 40px; }
+  header div .parte-inferior ul li a {
+    font-size: 12px; }
+  main .conteiner .slide {
+    max-width: 320px; }
+    main .conteiner .slide ul li img {
+      width: 320px; }
+  footer section div {
+    margin: 20px 20px; } }
