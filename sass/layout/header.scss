@@ -76,9 +76,10 @@ header{
 }
 .visible{
     display: block;
+    position: static;
     #carrito{
         justify-content: flex-end;
-        position:sticky;
+        position:fixed;
         background-color: rgb(0, 0, 0);
         width: 27%;
         

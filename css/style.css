@@ -66,10 +66,11 @@ header {
   display: none; }
 
 .visible {
-  display: block; }
+  display: block;
+  position: static; }
   .visible #carrito {
     justify-content: flex-end;
-    position: sticky;
+    position: fixed;
     background-color: black;
     width: 27%;
     right: 0px; }
