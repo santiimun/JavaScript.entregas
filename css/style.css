@@ -69,7 +69,7 @@ header {
   display: block; }
   .visible #carrito {
     justify-content: flex-end;
-    position: fixed;
+    position: sticky;
     background-color: black;
     width: 27%;
     right: 0px; }
@@ -170,7 +170,8 @@ header {
         width: 300px;
         margin-top: 20px;
         justify-content: center;
-        height: 50px; }
+        height: 50px;
+        color: black; }
         .visible #finalizar div input:hover {
           background-color: #393C41; }
 
@@ -276,7 +277,8 @@ main {
           font-optical-sizing: auto;
           font-weight: bold;
           font-style: normal;
-          cursor: pointer; }
+          cursor: pointer;
+          color: black; }
   main div h2 {
     font-size: 50px;
     text-align: center;
@@ -723,7 +725,55 @@ main #productos-niños {
   .visible #carrito #finalizar #monto #precio-dolar {
     font-size: 16px; }
   .visible #carrito #finalizar div input {
-    width: 200px; } }
+    width: 200px; }
+  main #productos-hombre div {
+    width: 300px;
+    margin: 0;
+    margin-top: 20px;
+    height: 430px; }
+    main #productos-hombre div img {
+      width: 300px; }
+    main #productos-hombre div div {
+      grid-template-columns: repeat(2, 140px);
+      grid-template-rows: repeat(2, 50px); }
+      main #productos-hombre div div h5 {
+        margin-left: 20px;
+        font-size: 20px; }
+      main #productos-hombre div div p {
+        margin-left: 20px;
+        font-size: 22px; }
+  main #productos-mujer div {
+    width: 300px;
+    margin: 0;
+    margin-top: 20px;
+    height: 430px; }
+    main #productos-mujer div img {
+      width: 300px; }
+    main #productos-mujer div div {
+      grid-template-columns: repeat(2, 140px);
+      grid-template-rows: repeat(2, 50px); }
+      main #productos-mujer div div h5 {
+        margin-left: 20px;
+        font-size: 20px; }
+      main #productos-mujer div div p {
+        margin-left: 20px;
+        font-size: 22px; }
+  main #productos-niños div {
+    width: 300px;
+    margin: 0;
+    margin-top: 20px;
+    height: 430px; }
+    main #productos-niños div img {
+      width: 300px; }
+    main #productos-niños div div {
+      grid-template-columns: repeat(2, 140px);
+      grid-template-rows: repeat(2, 50px); }
+      main #productos-niños div div h5 {
+        margin-left: 20px;
+        font-size: 20px; }
+      main #productos-niños div div p {
+        margin-left: 20px;
+        font-size: 22px; } }
 
 @media (max-width: 380px) {
   main .conteiner .slide {

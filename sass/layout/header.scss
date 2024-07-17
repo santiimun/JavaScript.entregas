@@ -78,7 +78,7 @@ header{
     display: block;
     #carrito{
         justify-content: flex-end;
-        position:fixed;
+        position:sticky;
         background-color: rgb(0, 0, 0);
         width: 27%;
         
@@ -200,6 +200,7 @@ header{
                     margin-top: 20px;
                     justify-content: center;
                     height: 50px;
+                    color: black;
                     &:hover{
                         background-color: #393C41;
                     }
